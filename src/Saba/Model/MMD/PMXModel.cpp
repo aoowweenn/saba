@@ -357,15 +357,15 @@ namespace saba
 			VertexBoneInfo vtxBoneInfo;
 			if (PMXVertexWeight::SDEF != v.m_weightType)
 			{
-				vtxBoneInfo.m_boneIndex[0] = v.m_boneIndices[0];
-				vtxBoneInfo.m_boneIndex[1] = v.m_boneIndices[1];
-				vtxBoneInfo.m_boneIndex[2] = v.m_boneIndices[2];
-				vtxBoneInfo.m_boneIndex[3] = v.m_boneIndices[3];
+				vtxBoneInfo.m_boneIndex[0] = v.m_def.bdef.boneIndices[0];
+				vtxBoneInfo.m_boneIndex[1] = v.m_def.bdef.boneIndices[1];
+				vtxBoneInfo.m_boneIndex[2] = v.m_def.bdef.boneIndices[2];
+				vtxBoneInfo.m_boneIndex[3] = v.m_def.bdef.boneIndices[3];
 
-				vtxBoneInfo.m_boneWeight[0] = v.m_boneWeights[0];
-				vtxBoneInfo.m_boneWeight[1] = v.m_boneWeights[1];
-				vtxBoneInfo.m_boneWeight[2] = v.m_boneWeights[2];
-				vtxBoneInfo.m_boneWeight[3] = v.m_boneWeights[3];
+				vtxBoneInfo.m_boneWeight[0] = v.m_def.bdef.boneWeights[0];
+				vtxBoneInfo.m_boneWeight[1] = v.m_def.bdef.boneWeights[1];
+				vtxBoneInfo.m_boneWeight[2] = v.m_def.bdef.boneWeights[2];
+				vtxBoneInfo.m_boneWeight[3] = v.m_def.bdef.boneWeights[3];
 			}
 
 			switch (v.m_weightType)
@@ -388,23 +388,23 @@ namespace saba
 				}
 				vtxBoneInfo.m_skinningType = SkinningType::SDEF;
 				{
-					auto i0 = v.m_boneIndices[0];
-					auto i1 = v.m_boneIndices[1];
-					auto w0 = v.m_boneWeights[0];
+					auto i0 = v.m_def.sdef.boneIndices[0];
+					auto i1 = v.m_def.sdef.boneIndices[1];
+					auto w0 = v.m_def.sdef.boneWeights[0];
 					auto w1 = 1.0f - w0;
 
-					auto center = v.m_sdefC * glm::vec3(1, 1, -1);
-					auto r0 = v.m_sdefR0 * glm::vec3(1, 1, -1);
-					auto r1 = v.m_sdefR1 * glm::vec3(1, 1, -1);
+					auto center = v.m_def.sdef.sdefC * glm::vec3(1, 1, -1);
+					auto r0 = v.m_def.sdef.sdefR0 * glm::vec3(1, 1, -1);
+					auto r1 = v.m_def.sdef.sdefR1 * glm::vec3(1, 1, -1);
 					auto rw = r0 * w0 + r1 * w1;
 					r0 = center + r0 - rw;
 					r1 = center + r1 - rw;
 					auto cr0 = (center + r0) * 0.5f;
 					auto cr1 = (center + r1) * 0.5f;
 
-					vtxBoneInfo.m_sdef.m_boneIndex[0] = v.m_boneIndices[0];
-					vtxBoneInfo.m_sdef.m_boneIndex[1] = v.m_boneIndices[1];
-					vtxBoneInfo.m_sdef.m_boneWeight = v.m_boneWeights[0];
+					vtxBoneInfo.m_sdef.m_boneIndex[0] = v.m_def.sdef.boneIndices[0];
+					vtxBoneInfo.m_sdef.m_boneIndex[1] = v.m_def.sdef.boneIndices[1];
+					vtxBoneInfo.m_sdef.m_boneWeight = v.m_def.sdef.boneWeights[0];
 					vtxBoneInfo.m_sdef.m_sdefC = center;
 					vtxBoneInfo.m_sdef.m_sdefR0 = cr0;
 					vtxBoneInfo.m_sdef.m_sdefR1 = cr1;

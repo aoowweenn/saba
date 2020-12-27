@@ -80,6 +80,19 @@ namespace saba
 		QDEF,
 	};
 
+	struct PMXBDEF {
+		int32_t		boneIndices[4];
+		float		boneWeights[4];
+	};
+
+	struct PMXSDEF {
+		int32_t		boneIndices[2];
+		float		boneWeights[1];
+		glm::vec3	sdefC;
+		glm::vec3	sdefR0;
+		glm::vec3	sdefR1;
+	};
+
 	struct PMXVertex
 	{
 		glm::vec3	m_position;
@@ -89,11 +102,10 @@ namespace saba
 		glm::vec4	m_addUV[4];
 
 		PMXVertexWeight	m_weightType; // 0:BDEF1 1:BDEF2 2:BDEF4 3:SDEF 4:QDEF
-		int32_t		m_boneIndices[4];
-		float		m_boneWeights[4];
-		glm::vec3	m_sdefC;
-		glm::vec3	m_sdefR0;
-		glm::vec3	m_sdefR1;
+		union {
+			struct PMXBDEF bdef;
+			struct PMXSDEF sdef;
+		} m_def;
 
 		float	m_edgeMag;
 	};

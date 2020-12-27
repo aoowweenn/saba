@@ -12,7 +12,7 @@ option (SABA_USE_GLSLANG "glsl Preprocessor : glslang lib" off)
 option (SABA_INSTALL "Saba install." off)
 option (SABA_GLFW_ROOT "GLFW Root Directory" "")
 option (SABA_FORCE_GLFW_BUILD "Force glfw build." off)
-option (SABA_ENABLE_EXAMPLE_VULKAN "Build vulakn's example." off)
+option (SABA_ENABLE_EXAMPLE_VULKAN "Build vulakn's example." on)
 
 set (BULLET_ROOT ${SABA_BULLET_ROOT})
 

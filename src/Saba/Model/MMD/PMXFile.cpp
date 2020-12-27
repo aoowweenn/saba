@@ -169,40 +169,40 @@ namespace saba
 				switch (vertex.m_weightType)
 				{
 				case PMXVertexWeight::BDEF1:
-					ReadIndex(&vertex.m_boneIndices[0], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[0], pmx->m_header.m_boneIndexSize, file);
 					break;
 				case PMXVertexWeight::BDEF2:
-					ReadIndex(&vertex.m_boneIndices[0], pmx->m_header.m_boneIndexSize, file);
-					ReadIndex(&vertex.m_boneIndices[1], pmx->m_header.m_boneIndexSize, file);
-					Read(&vertex.m_boneWeights[0], file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[0], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[1], pmx->m_header.m_boneIndexSize, file);
+					Read(&vertex.m_def.bdef.boneWeights[0], file);
 					break;
 				case PMXVertexWeight::BDEF4:
-					ReadIndex(&vertex.m_boneIndices[0], pmx->m_header.m_boneIndexSize, file);
-					ReadIndex(&vertex.m_boneIndices[1], pmx->m_header.m_boneIndexSize, file);
-					ReadIndex(&vertex.m_boneIndices[2], pmx->m_header.m_boneIndexSize, file);
-					ReadIndex(&vertex.m_boneIndices[3], pmx->m_header.m_boneIndexSize, file);
-					Read(&vertex.m_boneWeights[0], file);
-					Read(&vertex.m_boneWeights[1], file);
-					Read(&vertex.m_boneWeights[2], file);
-					Read(&vertex.m_boneWeights[3], file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[0], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[1], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[2], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[3], pmx->m_header.m_boneIndexSize, file);
+					Read(&vertex.m_def.bdef.boneWeights[0], file);
+					Read(&vertex.m_def.bdef.boneWeights[1], file);
+					Read(&vertex.m_def.bdef.boneWeights[2], file);
+					Read(&vertex.m_def.bdef.boneWeights[3], file);
 					break;
 				case PMXVertexWeight::SDEF:
-					ReadIndex(&vertex.m_boneIndices[0], pmx->m_header.m_boneIndexSize, file);
-					ReadIndex(&vertex.m_boneIndices[1], pmx->m_header.m_boneIndexSize, file);
-					Read(&vertex.m_boneWeights[0], file);
-					Read(&vertex.m_sdefC, file);
-					Read(&vertex.m_sdefR0, file);
-					Read(&vertex.m_sdefR1, file);
+					ReadIndex(&vertex.m_def.sdef.boneIndices[0], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.sdef.boneIndices[1], pmx->m_header.m_boneIndexSize, file);
+					Read(&vertex.m_def.sdef.boneWeights[0], file);
+					Read(&vertex.m_def.sdef.sdefC, file);
+					Read(&vertex.m_def.sdef.sdefR0, file);
+					Read(&vertex.m_def.sdef.sdefR1, file);
 					break;
 				case PMXVertexWeight::QDEF:
-					ReadIndex(&vertex.m_boneIndices[0], pmx->m_header.m_boneIndexSize, file);
-					ReadIndex(&vertex.m_boneIndices[1], pmx->m_header.m_boneIndexSize, file);
-					ReadIndex(&vertex.m_boneIndices[2], pmx->m_header.m_boneIndexSize, file);
-					ReadIndex(&vertex.m_boneIndices[3], pmx->m_header.m_boneIndexSize, file);
-					Read(&vertex.m_boneWeights[0], file);
-					Read(&vertex.m_boneWeights[1], file);
-					Read(&vertex.m_boneWeights[3], file);
-					Read(&vertex.m_boneWeights[4], file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[0], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[1], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[2], pmx->m_header.m_boneIndexSize, file);
+					ReadIndex(&vertex.m_def.bdef.boneIndices[3], pmx->m_header.m_boneIndexSize, file);
+					Read(&vertex.m_def.bdef.boneWeights[0], file);
+					Read(&vertex.m_def.bdef.boneWeights[1], file);
+					Read(&vertex.m_def.bdef.boneWeights[3], file);
+					Read(&vertex.m_def.bdef.boneWeights[4], file);
 					break;
 				default:
 					return false;
